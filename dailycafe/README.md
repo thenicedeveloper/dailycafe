@@ -2,6 +2,10 @@ Running Daily Cafe React/Node Project
 
 ## Available Scripts
 
+Access folder that has all the scripts
+
+## cd dailycafe
+
 Installing NPM and Dependecies
 
 ### `npm install express body-parser --save-dev`
