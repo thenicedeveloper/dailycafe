@@ -1,0 +1,142 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* height: 100vh;
+    width: 100vw; */
+    font-family: consolas;
+}
+
+/* *** Video background *** */
+.v-header {
+    height: 100vh;
+    height: 100%;
+    /* width: 100%; */
+    width: 100vw;
+    display: flex;
+    color: #fff;
+  }
+  
+  .fullscreen-video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .fullscreen-video-wrap video {
+    /* left: 50%; */
+    width: 100vh;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+    /* transform: translate(-40%, -30%); */
+  }
+  /* *** end of video background *** */
+  
+  /* Overlay the background video */
+  .header-overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #225470;
+    z-index: 1;
+    opacity: 0.6;
+  }
+  .header-content {
+    margin: 0 auto;
+    z-index: 3;
+  }
+  .top-title{
+    padding: 10% 0 3% 0;
+  }
+  .title {
+     text-align: center;
+  }
+
+  /* Text hover effect for h2 */
+  h2{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    font-size: 6em;
+    color: transparent;
+    /* text-transform: uppercase; */
+}
+
+h2 span:nth-child(1){
+    position: absolute;
+    top:0;
+    left:0;
+    /* color: #000; */
+    color:white;
+    transition: 0.5s;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    overflow: hidden;
+}
+
+h2:hover span:nth-child(1){
+    transform: translateY(-18px);
+}
+
+h2 span:nth-child(2){
+    position: absolute;
+    top:0;
+    left:0;
+    /* color: #000; */
+    color:white;
+    transition: 0.5s;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    overflow: hidden;
+}
+h2:hover span:nth-child(2){
+    transform: translateY(18px);
+}
+
+h2 span:nth-child(3){
+    position: absolute;
+    top:50%;
+    left: 0;
+    transform: translateY(-50%) scaleY(0);
+    width: 91%;
+    color: #000;
+    /* background: #ff0; */
+    background: transparent;
+    /* font-size: 0.25em; */
+    font-size: 0.30em;
+    font-weight: 500%;
+    letter-spacing: 0.7em;
+    text-align: center;
+    padding-left: 20px;
+    margin-left: 5px;
+    transition: 0.5s;
+    padding: 15px;
+    
+}
+h2:hover span:nth-child(3){
+    transform: translateY(-50%) scaleY(1);
+}
+
+.link{
+    color: rgb(214, 176, 176);
+    margin-bottom: 5px;
+}
+
+/* Anything below 800px - tablets/mobile */
+@media screen and (max-width: 800px) { 
+  
+  h2 {
+    display: inline-block;
+    /* left: 0; */
+    text-align: center;
+    font-size: 1.5rem;
+    align-self: center;
+  }
+}
