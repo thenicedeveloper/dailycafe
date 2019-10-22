@@ -8,5 +8,9 @@ module.exports = {
         user     :          process.env.db_user,
         password :          process.env.db_pass,
         database :          process.env.db_name
+    },
+    auth: {
+        google_id: process.env.google_client_id,
+        google_secret: process.env.google_client_secret
     }
 }
