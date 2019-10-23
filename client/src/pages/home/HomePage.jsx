@@ -1,10 +1,13 @@
 import React from "react";
+import Login from "./Login";
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <video
+    <div className="text-center">
+      <h1 className="mx-auto">Home Page</h1>
+      <Login />
+      
+      {/* <video
         width="500px"
         
         id="videoBG"
@@ -19,7 +22,7 @@ const HomePage = () => {
           src="public/video/DrinkingCoffee.mp4"
           data-reactid=".0.1.0.0.0"
         />
-      </video>
+      </video> */}
     </div>
   );
 };
