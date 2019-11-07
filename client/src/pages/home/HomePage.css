@@ -1,0 +1,14 @@
+.homepage-container {
+    padding-top: 150px;
+    /* padding: 200px 100px 50px 100px; */
+    /* align-items: center; */
+    /* align-self: center; */
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+    /* align-self: center; */
+    padding: 20px 30px;
+    
+}

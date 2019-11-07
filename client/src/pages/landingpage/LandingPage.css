@@ -6,6 +6,7 @@ body{
     font-family: consolas;
 }
 
+
 /* *** Video background *** */
 .v-header {
     height: 100vh;
@@ -14,6 +15,7 @@ body{
     width: 100vw;
     display: flex;
     color: #fff;
+    z-index: 1000;
   }
   
   .fullscreen-video-wrap {
@@ -59,19 +61,20 @@ body{
   }
 
   /* Text hover effect for h2 */
-  h2{
+  .landingpage-title {
     position: absolute;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
+    letter-spacing: 0.3rem;
     margin: 0;
     padding: 0;
-    font-size: 6em;
+    font-size: 2.5rem;
     color: transparent;
     /* text-transform: uppercase; */
 }
 
-h2 span:nth-child(1){
+.landingpage-title span:nth-child(1){
     position: absolute;
     top:0;
     left:0;
@@ -82,11 +85,11 @@ h2 span:nth-child(1){
     overflow: hidden;
 }
 
-h2:hover span:nth-child(1){
+.landingpage-title:hover span:nth-child(1){
     transform: translateY(-18px);
 }
 
-h2 span:nth-child(2){
+.landingpage-title span:nth-child(2){
     position: absolute;
     top:0;
     left:0;
@@ -96,35 +99,35 @@ h2 span:nth-child(2){
     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
     overflow: hidden;
 }
-h2:hover span:nth-child(2){
+.landingpage-title:hover span:nth-child(2){
     transform: translateY(18px);
 }
 
-h2 span:nth-child(3){
+.landingpage-title span:nth-child(3){
     position: absolute;
     top:50%;
     left: 0;
     transform: translateY(-50%) scaleY(0);
-    width: 91%;
+    width: 100%;
     color: #000;
-    /* background: #ff0; */
     background: transparent;
-    /* font-size: 0.25em; */
-    font-size: 0.30em;
+    font-size: 1.2rem;
     font-weight: 500%;
-    letter-spacing: 0.7em;
+    /* letter-spacing: 0.7em; */
     text-align: center;
     padding-left: 20px;
     margin-left: 5px;
     transition: 0.5s;
     padding: 15px;
-    
 }
-h2:hover span:nth-child(3){
+.landingpage-title:hover span:nth-child(3){
     transform: translateY(-50%) scaleY(1);
 }
 
-.link{
+.landingpage-link{
+
+  text-decoration-style: double;
+  font-weight: 800;
     color: rgb(214, 176, 176);
     margin-bottom: 5px;
 }
@@ -132,7 +135,7 @@ h2:hover span:nth-child(3){
 /* Anything below 800px - tablets/mobile */
 @media screen and (max-width: 800px) { 
   
-  h2 {
+  .landingpage-title {
     display: inline-block;
     /* left: 0; */
     text-align: center;

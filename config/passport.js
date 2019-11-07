@@ -16,6 +16,7 @@ passport.use(
    clientID: config.auth.google_id,
    clientSecret: config.auth.google_secret,
    callbackURL: "http://localhost:5000/auth/google/callback"
+   
   },
   function(accessToken, refreshToken, profile, done) {
    var userData = {
