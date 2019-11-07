@@ -1,0 +1,265 @@
+:root {
+    --background: rgba(255, 255, 255, 0.6);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* navigation styles start here */
+  .header-container {
+    top: 0;
+    padding: 1rem;
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    /* Make sure it stays on top */
+    z-index: 999;
+    width: 100%;
+    height: auto;
+    border-bottom: 0.5px solid rgb(194, 185, 185);
+  }
+  .logo {
+    text-align: center;
+  }
+  .logo .h2-image {
+    display: "block";
+    max-width: "100%";
+    max-height: "100%";
+    /* align-self: "center"; */
+    width: 50px;
+    height: 30px;
+    padding: 0;
+  }
+  
+  /* changed this from the tutorial video to
+     allow it to gain focus, making it tabbable */
+  .nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  
+  .nav-toggle:focus ~ .nav-toggle-label {
+    /* outline: 3px solid rgba(lightblue, .75); */
+    outline: 3px solid rgba(rgb(20, 22, 22), 0.75);
+  }
+  
+  .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* *** Hamburger */
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    /* background: white; */
+    background: rgb(26, 23, 23);
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: "";
+    position: absolute;
+  }
+  
+  .nav-toggle-label span::before {
+    bottom: 7px;
+  }
+  
+  .nav-toggle-label span::after {
+    top: 7px;
+  }
+  
+  .nav-toggle-label.active span {
+    background: rgba(0, 0, 0, 0);
+  }
+  .nav-toggle-label.active span::before {
+    top: 0;
+    transform: rotate(45deg);
+    transition-duration: 0.5s;
+  }
+  .nav-toggle-label.active span::after {
+    top: 0;
+    transform: rotate(135deg);
+    transition-duration: 0.5s;
+  }
+  /* *** End of Hamburger */
+  
+  nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 50%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+  }
+  
+  nav .nav-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav .nav-li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+  
+  nav .li-navlink {
+    color: #69804e;
+    /* color: #3b6296; */
+    text-decoration: none !important;
+    /* font-size: 1.3rem; */
+    font-size: 1.5rem;
+    font-weight: 500;
+    /* text-transform: uppercase; */
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+  
+  nav .li-navlink:hover {
+    color: #69804e;
+    font-weight: bolder;
+  }
+  /* nav_link:hover {
+    color: #000;
+  } */
+  
+  .nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+  }
+  
+  .nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+  
+  /* Menu dropdown*/
+  .nav-ul .nav-li .nav-ul {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+  }
+  
+  .nav-ul li:hover > .nav-ul,
+  .nav-ul li:focus-within > .nav-ul,
+  .nav-ul li .nav-ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  
+  .nav-ul .nav-li .nav-ul .nav-li {
+    clear: both;
+    width: 100%;
+  }
+  
+  @media screen and (min-width: 700px) {
+    :root {
+      --background: rgba(255, 255, 255, 1);
+    }
+  
+    .nav-toggle-label {
+      display: none;
+    }
+  
+    .header-container {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+    .logo {
+      align-self: left;
+    }
+    .logo {
+      /* grid-column: 2 / 3; */
+      grid-column: 1 / 2;
+    }
+  
+    nav {
+      margin-left: 20px;
+      width: 100%;
+      /* all: unset; /* this causes issues with Edge, since it's unsupported */
+  
+      /* add Edge support */
+      position: relative;
+      text-align: left;
+      transition: none;
+      transform: scale(1, 1);
+      background: none;
+      top: initial;
+      left: initial;
+      /* end Edge support stuff */
+  
+      grid-column: 3 / 4;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      /* align-items: flex-end; */
+    }
+  
+    /* Hide dropdown menu  */
+    .menu-dropdown {
+      pointer-events: none;
+      display: none;
+    }
+    .nav-ul li:hover > .nav-ul,
+    .nav-ul li:focus-within > .nav-ul,
+    .nav-ul li .nav-ul:hover {
+      display: none;
+    }
+    /* ****************** */
+    nav .nav-ul {
+      display: flex;
+    }
+  
+    nav .nav-li {
+      margin-left: 3em;
+      margin-bottom: 0;
+    }
+  
+    nav .li-navlink {
+      color: #69804e;
+      opacity: 1;
+      position: relative;
+      font-size: 1.3rem;
+      transition: opacity 150ms ease-in-out;
+    }
+  
+    nav .li-navlink::before {
+      content: "";
+      display: block;
+      height: 5px;
+      background: #69804e;
+      position: absolute;
+      /* top: -0.75em; */
+      left: 0;
+      right: 0;
+      transform: scale(0, 1);
+      /* transform-origin: left; */
+      transition: transform ease-in-out 250ms;
+    }
+  
+    nav .li-navlink:hover::before {
+      transform: scale(1, 1);
+    }
+  }
