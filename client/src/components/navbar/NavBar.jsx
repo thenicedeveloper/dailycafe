@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import Comp_Icon from "../../assets/images/coffeecup.png";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import "./NavBar.css";
 
 class NavBar extends Component {
@@ -11,7 +14,8 @@ class NavBar extends Component {
 
   handleMenuClick = () => {
     this.setState({
-      menuActive: (this.menuActive = !this.menuActive)
+      menuActive: (this.menuActive = !this.menuActive),
+      currentUser: null
     });
   };
 
@@ -114,32 +118,30 @@ class NavBar extends Component {
                 Cold Drinks
               </NavLink>
             </li> */}
-            <li className="nav-li">
-              <NavLink
-                className="li-navlink"
-                to="/signin"
-                // activeStyle={{ color: "green", fontWeight: "bold" }}
-              >
-                Sign In
-              </NavLink>
-              {/* <a
-                className="li-navlink"
-                href="auth/google"
-              >
-                Sign In
-              </a> */}
-            </li>
+
+            {this.state.currentUser ? (
+              <li className="nav-li">
+                <NavLink
+                  className="li-navlink"
+                  to="/signin"
+                  // activeStyle={{ color: "green", fontWeight: "bold" }}
+                >
+                  Sign In
+                </NavLink>
+              </li>
+            ) : (
+              <li className="nav-li">
+                <NavLink className="li-navlink" to="/auth/logout">
+                  Sign Out
+                </NavLink>
+              </li>
+            )}
 
             <li className="nav-li">
-              <NavLink
-                className="li-navlink"
-                to="/auth/logout"
-              >
-                Sign Out
-              </NavLink>
-              
+              <CartIcon></CartIcon>
             </li>
           </ul>
+          {this.props.hidden ? null : <CartDropdown />}
         </nav>
 
         <label
@@ -155,4 +157,9 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+  hidden: state.cart.hidden
+});
+
+export default connect(mapStateToProps)(NavBar);
