@@ -90,6 +90,11 @@
     margin-bottom: 10px;
     text-align: left;
   }
+  .product-price {
+    
+    text-align: center;
+  }
+
   .payment-link {
       padding: 30px 15px;
       text-align: center;
