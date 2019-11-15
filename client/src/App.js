@@ -16,6 +16,7 @@ import HomePage from "./pages/home/HomePage";
 import Product from "./pages/product/Product";
 import SignIn from "./pages/sign-in/SignIn";
 import Footer from "./components/footer/Footer";
+import CheckoutPage from './pages/checkout/checkout.component';
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { createStructuredSelector } from "reselect";
@@ -44,6 +45,7 @@ class App extends Component {
               <Col xs={12} md={8}>
                 <Route exact path="/home" component={HomePage} />
                 <Route exact path="/product" component={Product} />
+                <Route exact path="/checkout" component={CheckoutPage} />
                 <Route
                   exact
                   path="/signin"
