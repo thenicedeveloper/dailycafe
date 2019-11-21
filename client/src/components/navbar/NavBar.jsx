@@ -15,7 +15,7 @@ class NavBar extends Component {
   handleMenuClick = () => {
     this.setState({
       menuActive: (this.menuActive = !this.menuActive),
-      currentUser: null
+      currentUser: -1
     });
   };
 
@@ -118,21 +118,18 @@ class NavBar extends Component {
                 Cold Drinks
               </NavLink>
             </li> */}
-
+            
+             {/* Make this a prop coming from app */}
             {this.state.currentUser ? (
               <li className="nav-li">
-                <NavLink
-                  className="li-navlink"
-                  to="/signin"
-                  // activeStyle={{ color: "green", fontWeight: "bold" }}
-                >
-                  Sign In
+                <NavLink className="li-navlink" to="/auth/logout">
+                  Sign Out
                 </NavLink>
               </li>
             ) : (
               <li className="nav-li">
-                <NavLink className="li-navlink" to="/auth/logout">
-                  Sign Out
+                <NavLink className="li-navlink" to="/signin">
+                  Sign In
                 </NavLink>
               </li>
             )}
