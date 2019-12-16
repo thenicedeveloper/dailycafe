@@ -1,19 +1,13 @@
-import { UserActionTypes } from './user.types';
+import { FETCH_USER } from "./user.types";
 
-const INITIAL_STATE = {
-  currentUser: null
-};
+export default function(state = null, action) {
+    
+    console.log(action);
 
-const userReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case UserActionTypes.SET_CURRENT_USER:
-      return {
-        ...state,
-        currentUser: action.payload
-      };
-    default:
-      return state;
-  }
-};
-
-export default userReducer;
+    switch (action.type) {
+        case FETCH_USER:
+            return action.payload || false;
+        default:
+            return state;
+    }
+}

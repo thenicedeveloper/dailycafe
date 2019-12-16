@@ -9,6 +9,7 @@ const PORT          = process.env.PORT || 5000;
 const passport      = require("passport");
 
 
+app.use(cors());
 
 //Init Middleware
 app.use(express.json({ extended: false }));
