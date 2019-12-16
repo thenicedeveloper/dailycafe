@@ -4,7 +4,6 @@ const cors          = require('cors');
 const bodyParser    = require('body-parser');
 const path          = require('path');
 const db            = require('./config/config');
-const mysql         = require('mysql');
 const PORT          = process.env.PORT || 5000;
 const passport      = require("passport");
 
