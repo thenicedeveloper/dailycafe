@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import "react-bootstrap";
 import queryString from "query-string";
 
-class SignIn extends Component {
+class Register extends Component {
   componentWillMount() {
     // var query = queryString.parse(this.props.location.search);
     // if (query.token) {
@@ -17,11 +17,36 @@ class SignIn extends Component {
     return (
       <Fragment>
         <div className="signin-container">
-          <h1 className="text-dark">User Sign-in</h1>
+          <h1>User Sign-in</h1>
           <Row>
             <form className="form" autoComplete="on">
               <div className="form-group">
               <fieldset>
+                <legend>User registration</legend>
+                <Row>
+                  <label htmlFor="firstname">First Name</label>
+                  <input
+                    name="firstname"
+                    className="form-control"
+                    placeholder="First name"
+                    type="text"
+                    maxLength="30"
+                    required
+                  ></input>
+                </Row>
+
+                <Row>
+                  <label htmlFor="lastname">Last Name</label>
+                  <input
+                    name="lastname"
+                    className="form-control"
+                    placeholder="Last name"
+                    type="text"
+                    maxLength="30"
+                    required
+                  ></input>
+                </Row>
+
                 <Row>
                   <label htmlFor="email">Email</label>
                   <input
@@ -44,23 +69,30 @@ class SignIn extends Component {
                     required
                   ></input>
                 </Row>
+                <Row>
+                  <label htmlFor="confirmpassword">Confirm Password</label>
+                  <input
+                    name="confirmpassword"
+                    className="form-control"
+                    type="confirmpassword"
+                    placeholder="Confirm Password"
+                    maxLength="35"
+                    required
+                  ></input>
+                </Row>
                 <Row className="mt-2">
-                  <button className="btn btn-success m-auto" type="submit" value="submit">Sign In</button>
+                  <button className="btn btn-success m-auto" type="submit" value="submit">Submit</button>
                 </Row>
               </fieldset>
               </div>
             </form>
           </Row>
           <Row>
-
-          </Row>
-            <h4 className="m-auto d-block">OR</h4>
-          <Row>
             <a
               href="http://localhost:5000/auth/google"
               className="signin-button signin-a"
             >
-              <div>                
+              <div>
                 <span className="svgIcon t-popup-svg">
                   <svg
                     className="svgIcon-use"
@@ -87,7 +119,7 @@ class SignIn extends Component {
                       />
                     </g>
                   </svg>
-                </span>                
+                </span>
                 <span className="button-label">Sign in with Google</span>
               </div>
             </a>
@@ -100,4 +132,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default Register;
