@@ -14,6 +14,7 @@ import Coffee8 from "../../assets/images/coffee8.jpg";
 import "./Product.css";
 import Row from "react-bootstrap/Row";
 
+
 // Note - id must be unique for all products (coffee, tea, desserts, ...)
 // or it will cause a problem in our cart.
 const Coffees = [
