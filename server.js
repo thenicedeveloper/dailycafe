@@ -1,41 +1,29 @@
-const express       = require('express');
-const app           = express();
-const cors          = require('cors');
-const bodyParser    = require('body-parser');
-const path          = require('path');
-const db            = require('./config/config');
-const PORT          = process.env.PORT || 5000;
-const passport      = require("passport");
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const config = require("./config/config");
 
-
-
-//Init Middleware
-app.use(express.json({ extended: false }));
-app.use(express.static('client/build'));
-
-//passport
-app.use(passport.initialize());
+// Mongodb schema for users
+require("./models/user");
+// since we are not returning anything from passport we can condence it to just require.
 require("./config/passport");
+// Connect to mongo database
+mongoose.connect(config.mongoURI);
 
+const app = express();
 
-//Db Connection
-// const pool = mysql.createPool(db.db);
-// pool.getConnection(function(err, connection) {
-//     if (err) throw err; // not connected!
+app.use(
+    cookieSession( {
+        // expires in 30 days 
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [config.cookieKey]
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-//     console.log("Connected to mysql!")
-// })
+require("./routes/authroutes")(app);
 
-
-
-//Define routes
-app.use('/', require('./routes/'))
-
-//Serve public files
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-// })
-
-
-
-app.listen(PORT, ()=>  console.log(`Server started on ${PORT}`))
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
