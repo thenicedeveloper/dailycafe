@@ -8,12 +8,12 @@ import Row from "react-bootstrap/Row";
 
 
 //Photos
-let hottea1 = "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?cs=srgb&dl=aromatic-close-cup-1417945.jpg&fm=jpg"
-let hotcoffee1 = "https://images.pexels.com/photos/533403/pexels-photo-533403.jpeg?cs=srgb&dl=beverage-break-caffeine-533403.jpg&fm=jpg"
-let hotdrinks1 = "https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?cs=srgb&dl=close-up-of-coffee-cup-324028.jpg&fm=jpg"
-// let coldtea1 = "https://images.pexels.com/photos/1194030/pexels-photo-1194030.jpeg?cs=srgb&dl=alcohol-bar-blurred-background-1194030.jpg&fm=jpg"
-let colddrink1 = "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?cs=srgb&dl=summer-drinks-drink-still-life-109275.jpg&fm=jpg"
-let coldcoffee1 = "https://images.pexels.com/photos/1023949/pexels-photo-1023949.jpeg?cs=srgb&dl=beverage-brown-caffeine-1023949.jpg&fm=jpg";
+let hottea1 = "https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+let hotcoffee1 = "https://images.unsplash.com/photo-1450024529642-858b23834369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+let hotdrinks1 = "https://images.unsplash.com/photo-1536513953700-ba24c78a5f51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+// let coldtea1 = "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+let colddrink1 = "https://images.unsplash.com/photo-1524156868115-e696b44983db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
+let coldcoffee1 = "https://images.unsplash.com/photo-1481455473976-c280ae7c10f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80";
 
 const Categories = [
   {
