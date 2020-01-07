@@ -9,7 +9,7 @@ require("./models/user");
 // since we are not returning anything from passport we can condence it to just require.
 require("./config/passport");
 // Connect to mongo database
-mongoose.connect(config.mongoURI);
+// mongoose.connect(config.mongoURI);
 
 const app = express();
 
