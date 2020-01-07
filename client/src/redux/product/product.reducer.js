@@ -12,57 +12,41 @@ import Yogurts from "../../data/Yogurts";
 // **********************************
 
 const INITIAL_STATE = {
-  productItems: {}
+  productItems: []
 };
 
 const productReducer = (state = INITIAL_STATE, action) => {
-
   switch (action.type) {
     case ProductActionTypes.GET_PRODUCTS:
       let title = action.payload;
-      // let j = title.toUpperCase();
+
       switch (title.toUpperCase()) {
         case "HOT COFFEES":
-          state.productItems = Coffees;
-          break;
+          return Coffees;
         case "HOT TEAS":
-          // cafeProducts = Teas;
-          state.productItems = Teas;
-          break;
+          return Teas;
         case "HOT DRINKS":
-          // this.setState({ goods: HotDrinks });
-          // cafeProducts =  HotDrinks;
-          state.productItems =  HotDrinks;
-          break;
+          return HotDrinks;
         case "COLD COFFEES":
-          // this.setState({ goods: ColdCoffees });
-          // cafeProducts =  ColdCoffees;
-          state.productItems =  ColdCoffees;
-          break;
+          return ColdCoffees;
         case "COLD DRINKS":
-          state.productItems = ColdDrinks;
-          break;
+          return ColdDrinks;
         case "JUICES":
-          state.productItems =  Juices;
-          break;
-        case "Baked Goods":
-          console.log("Baked goods" + Bakegoods);
-          state.productItems =  Bakegoods;
-          break;
+          return Juices;
+        case "BAKED GOODS":
+          return Bakegoods;
         case "SNACKS":
-          state.productItems =  Snacks;
-          break;
+          return Snacks;
         case "YOGURTS":
-          state.productItems =  Yogurts;
-          break;
+          return Yogurts;
         default:
-          break;
+          return state;
       }
-      // console.log("Productitems " + JSON.stringify(state.productItems));
-      console.log("default " + Bakegoods);
-      return {state};
+
+    // case ProductActionTypes.LIST_PRODUCTS:
+      // return state;
     default:
-      return {state};
+      return state;
   }
 };
 

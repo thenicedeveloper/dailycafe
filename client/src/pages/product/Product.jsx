@@ -15,6 +15,8 @@ class Product extends Component {
   render() {
     // let item = this.props.item;
     let addItem = this.props.addItem;
+    // Convert data object this.props.listProducts into an array in order for
+    // .map to work properly
     let listProducts = this.props.listProducts;
     console.log("in product - listProducts " + JSON.stringify(listProducts));
 
@@ -57,7 +59,7 @@ class Product extends Component {
 }
 // ToDo: state.product.state.productItems needs to be changed to  state.productItems
 const mapStateToProps = state => ({
-  listProducts: state.product.state.productItems
+  listProducts: Object.values(state.product)
 });
 
 const mapDispatchToProps = dispatch => ({
