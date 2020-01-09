@@ -77,7 +77,7 @@
     opacity: 0;
     line-height: 1.2em;
     transition: 0.5s;
-    text-align: justify;
+    text-align: center;
   }
   
   .card-product:hover .card-product-content p {
@@ -86,12 +86,8 @@
   }
   
   .product-desc {
-    display: inline-block;
+    /* display: inline-block; */
     margin-bottom: 10px;
-    text-align: left;
-  }
-  .product-price {
-    
     text-align: center;
   }
 
