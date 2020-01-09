@@ -34,7 +34,7 @@ class Product extends Component {
                   ></img>
                 </div>
                 <div className="card-product-content">
-                  <h2 className="card-product-title">{item.name}</h2>
+                  <h4 className="card-product-title">{item.name}</h4>
 
                   <p className="product-desc">Mild Roasted</p>
                   <p className="product-price">Price: ${item.price} </p>

@@ -64,11 +64,11 @@
   .card-product .card-product-content .card-product-title {
     margin: 0;
     padding: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     text-align: center;
     color: #000;
-    letter-spacing: .3rem;
+    letter-spacing: .1rem;
   }
   
   .card-product .card-product-content p {
