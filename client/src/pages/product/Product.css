@@ -64,11 +64,11 @@
   .card-product .card-product-content .card-product-title {
     margin: 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     text-align: center;
     color: #000;
-    letter-spacing: .1rem;
+    letter-spacing: .3rem;
   }
   
   .card-product .card-product-content p {
@@ -77,7 +77,7 @@
     opacity: 0;
     line-height: 1.2em;
     transition: 0.5s;
-    text-align: center;
+    text-align: justify;
   }
   
   .card-product:hover .card-product-content p {
@@ -86,8 +86,12 @@
   }
   
   .product-desc {
-    /* display: inline-block; */
+    display: inline-block;
     margin-bottom: 10px;
+    text-align: left;
+  }
+  .product-price {
+    
     text-align: center;
   }
 

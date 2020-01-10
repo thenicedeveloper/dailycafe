@@ -1,19 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
-import { getProducts } from "../../redux/product/product.actions";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
+import MyPhoto from "../../assets/images/coffee.jpg";
 
 
 //Photos
-let hottea1 = "https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-let hotcoffee1 = "https://images.unsplash.com/photo-1450024529642-858b23834369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-let hotdrinks1 = "https://images.unsplash.com/photo-1536513953700-ba24c78a5f51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-// let coldtea1 = "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-let colddrink1 = "https://images.unsplash.com/photo-1524156868115-e696b44983db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80"
-let coldcoffee1 = "https://images.unsplash.com/photo-1481455473976-c280ae7c10f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80";
+let hottea1 = "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?cs=srgb&dl=aromatic-close-cup-1417945.jpg&fm=jpg"
+let hotcoffee1 = "https://images.pexels.com/photos/533403/pexels-photo-533403.jpeg?cs=srgb&dl=beverage-break-caffeine-533403.jpg&fm=jpg"
+let hotdrinks1 = "https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?cs=srgb&dl=close-up-of-coffee-cup-324028.jpg&fm=jpg"
+let coldtea1 = "https://images.pexels.com/photos/1194030/pexels-photo-1194030.jpeg?cs=srgb&dl=alcohol-bar-blurred-background-1194030.jpg&fm=jpg"
+let colddrink1 = "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?cs=srgb&dl=summer-drinks-drink-still-life-109275.jpg&fm=jpg"
+let coldcoffee1 = "https://images.pexels.com/photos/1023949/pexels-photo-1023949.jpeg?cs=srgb&dl=beverage-brown-caffeine-1023949.jpg&fm=jpg";
 
 const Categories = [
   {
@@ -44,16 +43,14 @@ const Categories = [
 ];
 
 
-const HomePage = ({getProducts}) => {
+const HomePage = () => {
   return (
     <div className="homepage-container">
       <h1>Menu</h1>
       <Row xs={12} md={4} className="justify-content-around" >
         {Categories.map(Category => {
           return (
-            // <Link key={Category.count} className="link" to="/product">
-            // DZ - Passing title (example"coffees") to product in order to know what product to show
-            <Link key={Category.count} className="link" to="/product" onClick={() => getProducts(Category.title)}>
+            <Link key={Category.count} className="link" to="/product">
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={Category.photo} />
                 <Card.Body>
@@ -68,8 +65,4 @@ const HomePage = ({getProducts}) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  getProducts: category => dispatch(getProducts(category))
-})
-
-export default connect(null, mapDispatchToProps)(HomePage);
+export default HomePage;

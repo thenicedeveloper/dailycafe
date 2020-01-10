@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Comp_Icon from "../../assets/images/coffeecup.png";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
-// import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import "./NavBar.css";
 
 class NavBar extends Component {
@@ -14,50 +14,10 @@ class NavBar extends Component {
 
   handleMenuClick = () => {
     this.setState({
-      menuActive: (this.menuActive = !this.menuActive)
+      menuActive: (this.menuActive = !this.menuActive),
+      currentUser: -1
     });
   };
-
-  renderContent() {
-    switch (this.props.auth) {
-      case null:
-        // Still waiting
-        // return waiting;
-        return;
-      case false:
-        return (
-          // due to Navlink being a virtual router it will not render the /auth/google route
-          <li className="nav-li">
-            <NavLink
-              to={"/signin"}
-              // className="btn-flat nav_link"
-              className="li-navlink"
-              activeStyle={{ color: "green", fontWeight: "bold" }}
-            >
-              Sign In
-            </NavLink>
-          </li>
-
-          // <a href="/auth/google">Login</a>
-        );
-      default:
-        console.log("In rendercontent " + JSON.stringify(this.props.auth));
-        // return "already logged in";
-        return (
-          // due to Navlink being a virtual router it will not render the /api/logout route
-          <li className="nav-li">
-            {/* <NavLink
-              to={"/api/logout"}
-              className="li-navlink"
-              activeStyle={{ color: "green", fontWeight: "bold" }}
-            >
-              Sign out
-            </NavLink> */}
-            <a className="li-navlink" href="/api/logout">Logout</a>
-          </li>
-        );
-    }
-  }
 
   render() {
     return (
@@ -128,10 +88,39 @@ class NavBar extends Component {
                   </NavLink>
                 </li>
               </ul>
+
+              {/* 
+              coffee
+              <div className="dropdown-hot-coffee-content">
+                <a href="#">American Coffee</a>
+                <a href="#">Cappuccino</a>
+                <a href="#">Esspresso</a>
+                <a href="#">Latte</a>
+              </div> */}
             </li>
 
-            {/* Make this a prop coming from app */}
-            {/* {this.state.currentUser ? (
+            {/* <li>
+              <NavLink
+                to="#"
+                // className="btn-flat nav_link"
+                activeStyle={{ color: "green", fontWeight: "bold" }}
+                
+              >
+                Hot Tea
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="#"
+                // className="btn-flat nav_link"
+                activeStyle={{ color: "green", fontWeight: "bold" }}
+              >
+                Cold Drinks
+              </NavLink>
+            </li> */}
+            
+             {/* Make this a prop coming from app */}
+            {this.state.currentUser ? (
               <li className="nav-li">
                 <NavLink className="li-navlink" to="/auth/logout">
                   Sign Out
@@ -143,9 +132,7 @@ class NavBar extends Component {
                   Sign In
                 </NavLink>
               </li>
-            )} */}
-            {/* <li className="nav-li">{this.renderContent()}</li> */}
-            {this.renderContent()}
+            )}
 
             <li className="nav-li">
               <CartIcon></CartIcon>
@@ -168,7 +155,7 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  currentUser: state.user.currentUser,
   hidden: state.cart.hidden
 });
 

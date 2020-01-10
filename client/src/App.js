@@ -18,16 +18,15 @@ import SignIn from "./pages/sign-in/SignIn";
 import Footer from "./components/footer/Footer";
 import CheckoutPage from './pages/checkout/checkout.component';
 import { connect } from "react-redux";
-import * as actions from "./redux/user/actions";
-// import { setCurrentUser } from "./redux/user/user.actions";
-// import { selectCurrentUser } from './redux/user/user.selectors';
+import { setCurrentUser } from "./redux/user/user.actions";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends Component {
   componentDidMount() {
-    // const { setCurrentUser } = this.props;
+    const { setCurrentUser } = this.props;
 
     // Get currentuser
-    this.props.fetchUser();
   }
 
   render() {
@@ -43,7 +42,6 @@ class App extends Component {
             {/* <Col xs={12} md={8}> */}
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact path="/landingpage" component={LandingPage} />
               <Col xs={12} md={8}>
                 <Route exact path="/home" component={HomePage} />
                 <Route exact path="/product" component={Product} />
@@ -70,11 +68,14 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
 
-// const mapDispatchToProps = dispatch => ({
+
+const mapDispatchToProps = dispatch => ({
   // setCurrentUser is the action
-  // setCurrentUser: user => dispatch(setCurrentUser(user))
-// });
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
 
-// Actions are assigned to app as props
-export default connect(null, actions)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

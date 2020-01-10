@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./SignIn.css";
 import Row from "react-bootstrap/Row";
 import "react-bootstrap";
-// import queryString from "query-string";
+import queryString from "query-string";
 
 class SignIn extends Component {
   componentWillMount() {
@@ -57,8 +57,7 @@ class SignIn extends Component {
             <h4 className="m-auto d-block">OR</h4>
           <Row>
             <a
-              // href="http://localhost:5000/auth/google"
-              href="/auth/google"
+              href="http://localhost:5000/auth/google"
               className="signin-button signin-a"
             >
               <div>                
