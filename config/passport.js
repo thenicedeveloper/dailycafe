@@ -2,17 +2,17 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const config = require("../config/config");
-const user = mongoose.model("users");
+let user = require("../models/user")
+
+// let user = {}
 
 // user.id is the shortcut to the auto generated mongodb _id
 // The reason why we use mongodb is because we might use facebook, github, twitter ....
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user);
 });
-passport.deserializeUser((id, done) => {
-  user.findById(id).then(user => {
+passport.deserializeUser((user, done) => {
     done(null, user);
-  });
 });
 
 passport.use(
@@ -26,17 +26,20 @@ passport.use(
       //Save to database
     //   console.log("access token: ", accessToken);
     //   console.log("refresh token: ", refreshToken);
-      console.log("Profile: ", profile);
-
+      // console.log("Profile: ", profile);
+      // done(null, user);
       // Search database to see if user exists
       const existingUser = await user.findOne({ googleId: profile.id });
       if (existingUser) {
         // User already exists no need to save to database
         done(null, existingUser);
+        
       } else {
         // Save new user to database
-        console.log("save record");
-        const user = await new user({ googleId: profile.id }).save();
+        console.log("saved record")
+        user = await new user({ googleId: profile.id })
+        console.log("Last user: ")
+        console.log(user)
         done(null, user);
       }
     }

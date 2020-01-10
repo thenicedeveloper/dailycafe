@@ -12,7 +12,7 @@ module.exports = app => {
   // The "google" identifies google to use the googlestrategy
   app.get(
     "/auth/google/callback",
-    passport.authenticate("google"),
+    passport.authenticate("google", { failureRedirect: "/", session: true }),
     (req, res) => {
       console.log("DZ login " + req.user);
       // res.send(req.user);
