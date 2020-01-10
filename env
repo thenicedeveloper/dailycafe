@@ -1,0 +1,11 @@
+google_client_id=232734716653-h0g0fb1spjfdk0gp4mfe82ms3nibsoqs.apps.googleusercontent.com
+google_client_secret=pTR83JlTma0RjmOYVYYSh7ue 
+
+
+
+google_client_id="232734716653-h0g0fb1spjfdk0gp4mfe82ms3nibsoqs.apps.googleusercontent.com"
+google_client_secret="pTR83JlTma0RjmOYVYYSh7ue"
+SESSION_SECRET="best_chocolate_cookie"
+
+cookieKey="poedxcvbmjqesdfghhcbvvvvplkdgfhghhgSDSD"
+mongoURI="mongodb+srv://dailycafeadmin:RJ1qaR1H7SDwCAsr@cluster0-hfuoc.mongodb.net/test?retryWrites=true&w=majority"
