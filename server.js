@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const config = require("./config/config");
-const app = express();
+
 // Mongodb schema for users
 require("./models/user");
 // since we are not returning anything from passport we can condence it to just require.
@@ -11,7 +11,7 @@ require("./config/passport");
 // Connect to mongo database
 mongoose.connect(config.mongoURI);
 
-
+const app = express();
 
 app.use(
     cookieSession( {
