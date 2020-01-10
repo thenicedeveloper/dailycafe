@@ -2,7 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const config = require("../config/config");
-const let = mongoose.model("users");
+let user = mongoose.model("users");
 
 // user.id is the shortcut to the auto generated mongodb _id
 // The reason why we use mongodb is because we might use facebook, github, twitter ....
