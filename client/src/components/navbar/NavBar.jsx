@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import Comp_Icon from "../../assets/images/coffeecup.png";
@@ -41,20 +41,19 @@ class NavBar extends Component {
           // <a href="/auth/google">Login</a>
         );
       default:
-        console.log("In rendercontent " + JSON.stringify(this.props.auth));
         // return "already logged in";
         return (
-          // due to Navlink being a virtual router it will not render the /api/logout route
-          <li className="nav-li">
-            {/* <NavLink
-              to={"/api/logout"}
-              className="li-navlink"
-              activeStyle={{ color: "green", fontWeight: "bold" }}
-            >
-              Sign out
-            </NavLink> */}
-            <a className="li-navlink" href="/api/logout">Logout</a>
-          </li>
+          <Fragment>
+            
+            <li className="nav-li">
+              <a className="li-navlink" href="/api/logout">
+                Logout
+              </a>
+            </li>
+            <li className="nav-li">
+              <CartIcon></CartIcon>
+            </li>
+          </Fragment>
         );
     }
   }
@@ -91,65 +90,12 @@ class NavBar extends Component {
               >
                 Menu
               </NavLink>
-              <ul className="menu-dropdown dropdown">
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Hot Coffee
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Hot Tea
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Hot Chocolate
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Iced Coffee
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Iced Teas
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Juices
-                  </NavLink>
-                </li>
-                <li className="nav-li">
-                  <NavLink className="li-navlink" to="/home">
-                    Bakery
-                  </NavLink>
-                </li>
-              </ul>
             </li>
-
-            {/* Make this a prop coming from app */}
-            {/* {this.state.currentUser ? (
-              <li className="nav-li">
-                <NavLink className="li-navlink" to="/auth/logout">
-                  Sign Out
-                </NavLink>
-              </li>
-            ) : (
-              <li className="nav-li">
-                <NavLink className="li-navlink" to="/signin">
-                  Sign In
-                </NavLink>
-              </li>
-            )} */}
             {/* <li className="nav-li">{this.renderContent()}</li> */}
             {this.renderContent()}
-
-            <li className="nav-li">
+            {/* <li className="nav-li">
               <CartIcon></CartIcon>
-            </li>
+            </li> */}
           </ul>
           {this.props.hidden ? null : <CartDropdown />}
         </nav>
