@@ -9,7 +9,10 @@ require("./models/user");
 // since we are not returning anything from passport we can condence it to just require.
 require("./config/passport");
 // Connect to mongo database
-mongoose.connect(config.mongoURI);
+mongoose.connect(config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+});
 
 const app = express();
 
@@ -26,4 +29,4 @@ app.use(passport.session());
 require("./routes/authroutes")(app);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+app.listen(PORT, console.log(`Server starting in port ${PORT}`));
