@@ -20,7 +20,6 @@
     "express-validator": "^6.2.0",
     "mongoose": "^5.8.1",
     "passport": "^0.4.0",
-    "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
