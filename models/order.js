@@ -3,7 +3,8 @@ const {Schema} = mongoose;
 
 const orderSchema = new Schema({
     orderId: String,
-    userId:{type: Schema.Types.ObjectId, ref:'User'},
+    totalItems: String,
+    totalPrice: String,
     date:{ type: Date, default: Date.now }
 });
 
