@@ -7,6 +7,7 @@
 
 .sidebar-container {
     height: 100%;
+    width: auto;
     padding-top: 180px;
     /* border-right: solid 2px rgb(194, 185, 185); */
 }
